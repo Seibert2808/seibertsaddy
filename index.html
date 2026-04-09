@@ -1,0 +1,867 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Seibert Saddy Saúde Integrativa | Medicina Integrativa e Cannabinóide no Rio de Janeiro</title>
+<meta name="description" content="Clínica de Medicina Integrativa, Cannabinóide e Clínica Geral no Rio de Janeiro. Protocolos personalizados para emagrecimento, dor crônica, ansiedade e muito mais.">
+<link rel="icon" href="logo.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Lato:wght@300;400;600;700&display=swap" rel="stylesheet">
+<script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
+<!-- Google Analytics placeholder (insira aqui o script quando tiver GA_ID) -->
+<style>
+  :root {
+    --sage: #7D8C6F;
+    --sage-dark: #5d6c52;
+    --sage-light: #a4b497;
+    --taupe: #B8A898;
+    --gold: #C4A45A;
+    --gold-dark: #9b8240;
+    --bg: #FAF8F5;
+    --bg-alt: #f0e9df;
+    --bg-dark: #3D3830;
+    --text: #2E2A25;
+    --text-soft: #6B6460;
+    --text-light: #9c948c;
+    --border: #e8ddd1;
+    --img-placeholder: #D6CCB8;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: 'Lato', -apple-system, sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.65;
+    font-size: 16px;
+    -webkit-font-smoothing: antialiased;
+  }
+  h1, h2, h3, h4 { font-family: 'Playfair Display', serif; font-weight: 500; line-height: 1.2; color: var(--text); }
+  h1 { font-size: clamp(2.2rem, 5vw, 3.6rem); font-weight: 400; }
+  h2 { font-size: clamp(2rem, 4vw, 2.8rem); font-weight: 400; }
+  h3 { font-size: 1.5rem; font-weight: 500; }
+  h4 { font-size: 1.1rem; font-weight: 600; }
+  p { color: var(--text-soft); }
+  a { color: var(--sage-dark); text-decoration: none; transition: color .2s; }
+  a:hover { color: var(--gold-dark); }
+  img { max-width: 100%; display: block; }
+  .container { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
+  section { padding: 90px 0; }
+  .sec-tag { display: inline-block; font-size: 11px; font-weight: 600; letter-spacing: 2.5px; text-transform: uppercase; color: var(--gold-dark); margin-bottom: 14px; }
+  .sec-title { margin-bottom: 18px; }
+  .sec-sub { font-size: 17px; color: var(--text-soft); max-width: 680px; margin: 0 auto 50px; }
+
+  /* IMAGE PLACEHOLDER */
+  .img-placeholder {
+    background: var(--img-placeholder);
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--text-soft);
+    font-size: 12px;
+    text-align: center;
+    padding: 20px;
+    font-style: italic;
+    min-height: 160px;
+  }
+  .img-placeholder::before { content: '📷 ' attr(data-desc); }
+
+  /* HEADER */
+  .header { position: sticky; top: 0; background: rgba(250, 248, 245, 0.96); backdrop-filter: blur(10px); border-bottom: 1px solid var(--border); z-index: 1000; padding: 14px 0; transition: all .3s; }
+  .header-inner { display: flex; align-items: center; justify-content: space-between; gap: 20px; }
+  .header-logo img { height: 52px; }
+  .nav { display: flex; gap: 34px; align-items: center; }
+  .nav-item { position: relative; }
+  .nav-item > a { color: var(--text); font-size: 14px; font-weight: 600; padding: 8px 0; display: flex; align-items: center; gap: 4px; }
+  .nav-item > a:hover { color: var(--sage-dark); }
+  .nav-dropdown { position: absolute; top: 100%; left: 50%; transform: translateX(-50%) translateY(8px); background: #fff; border: 1px solid var(--border); border-radius: 12px; padding: 14px 0; min-width: 280px; box-shadow: 0 12px 32px rgba(0,0,0,0.08); opacity: 0; visibility: hidden; transition: all .25s; z-index: 100; }
+  .nav-item:hover .nav-dropdown { opacity: 1; visibility: visible; transform: translateX(-50%) translateY(0); }
+  .nav-dropdown a { display: block; padding: 8px 22px; font-size: 13px; color: var(--text); }
+  .nav-dropdown a:hover { background: var(--bg-alt); color: var(--sage-dark); }
+  .header-cta { background: var(--gold); color: #fff; padding: 11px 22px; border-radius: 30px; font-size: 13px; font-weight: 600; transition: all .25s; letter-spacing: 0.3px; }
+  .header-cta:hover { background: var(--gold-dark); color: #fff; transform: translateY(-1px); }
+  .menu-toggle { display: none; background: none; border: none; cursor: pointer; padding: 6px; color: var(--text); }
+
+  /* HERO */
+  .hero { padding: 0; position: relative; min-height: 90vh; display: flex; align-items: center; overflow: hidden; }
+  .hero-bg { position: absolute; inset: 0; background: url('img-02-hero.webp') center/cover no-repeat; z-index: 0; }
+  .hero-overlay { position: absolute; inset: 0; background: linear-gradient(90deg, rgba(45, 40, 32, 0.75) 0%, rgba(45, 40, 32, 0.45) 60%, rgba(45, 40, 32, 0.2) 100%); z-index: 1; }
+  .hero-content { position: relative; z-index: 2; padding: 100px 0; width: 100%; }
+  .hero-grid { display: grid; grid-template-columns: 1fr 380px; gap: 60px; align-items: center; }
+  .hero-text h1 { color: #fff; margin-bottom: 8px; font-style: italic; }
+  .hero-text h1 .sub { display: block; font-size: 0.7em; font-style: normal; color: var(--gold); margin-top: 12px; }
+  .hero-text p { color: rgba(255,255,255,0.9); font-size: 17px; max-width: 560px; margin: 24px 0 36px; }
+  .hero-cta { display: inline-flex; align-items: center; gap: 10px; background: var(--gold); color: #fff; padding: 16px 36px; border-radius: 40px; font-size: 14px; font-weight: 600; letter-spacing: 0.5px; transition: all .25s; box-shadow: 0 8px 24px rgba(196, 164, 90, 0.4); }
+  .hero-cta:hover { background: var(--gold-dark); color: #fff; transform: translateY(-2px); }
+  .hero-cta i { width: 18px; height: 18px; }
+  .hero-doctor { aspect-ratio: 4/5; border-radius: 16px; border: 4px solid rgba(255,255,255,0.2); overflow: hidden; }
+
+  /* SOBRE */
+  .sobre { background: var(--bg); }
+  .sobre-grid { display: grid; grid-template-columns: 1fr 1.2fr; gap: 60px; align-items: center; }
+  .sobre-image { aspect-ratio: 3/2; border-radius: 16px; }
+  .sobre-text p { margin-bottom: 18px; font-size: 16px; color: var(--text-soft); }
+  .sobre-text p:last-child { margin-bottom: 0; }
+
+  /* QUOTE */
+  .quote { background: var(--bg-dark); color: #fff; padding: 100px 0; text-align: center; position: relative; overflow: hidden; }
+  .quote::before { content: ''; position: absolute; inset: 0; background: var(--img-placeholder); opacity: 0.1; }
+  .quote-content { position: relative; z-index: 1; }
+  .quote-mark { font-family: 'Playfair Display', serif; font-size: 5rem; color: var(--gold); line-height: 0.5; margin-bottom: 14px; }
+  .quote p { font-family: 'Playfair Display', serif; font-size: clamp(1.5rem, 3vw, 2.4rem); font-style: italic; max-width: 900px; margin: 0 auto; line-height: 1.45; color: #f5eae4; font-weight: 400; }
+
+  /* PROTOCOLO CARDS */
+  .protocolo { background: var(--bg-alt); }
+  .protocolo-header { text-align: center; margin-bottom: 60px; }
+  .protocolo-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 28px; }
+  .protocolo-card { background: #fff; border-radius: 16px; overflow: hidden; border: 2px solid var(--border); transition: all .3s; }
+  .protocolo-card:hover { border-color: var(--gold); transform: translateY(-4px); box-shadow: 0 14px 30px rgba(0,0,0,0.06); }
+  .protocolo-img { aspect-ratio: 3/2; }
+  .protocolo-card .img-placeholder { border-radius: 0; min-height: 180px; }
+  .protocolo-text { padding: 24px 22px; text-align: center; font-size: 14px; color: var(--text-soft); line-height: 1.65; font-style: italic; }
+  .protocolo-cta { text-align: center; margin-top: 50px; }
+  .protocolo-cta p { font-size: 17px; margin-bottom: 22px; color: var(--text); }
+  .btn-gold { display: inline-flex; align-items: center; gap: 10px; background: var(--gold); color: #fff; padding: 14px 32px; border-radius: 40px; font-size: 14px; font-weight: 600; letter-spacing: 0.5px; transition: all .25s; box-shadow: 0 6px 18px rgba(196, 164, 90, 0.3); border: none; cursor: pointer; font-family: inherit; }
+  .btn-gold:hover { background: var(--gold-dark); color: #fff; transform: translateY(-2px); }
+  .btn-gold i { width: 18px; height: 18px; }
+
+  /* SERVIÇOS */
+  .servicos { background: var(--bg); }
+  .servicos-header { text-align: center; margin-bottom: 60px; }
+  .servico-grupo { margin-bottom: 50px; }
+  .servico-grupo:last-child { margin-bottom: 0; }
+  .grupo-titulo { font-family: 'Playfair Display', serif; font-size: 1.6rem; color: var(--sage-dark); margin-bottom: 24px; text-align: center; font-style: italic; position: relative; padding-bottom: 14px; }
+  .grupo-titulo::after { content: ''; display: block; width: 50px; height: 2px; background: var(--gold); margin: 14px auto 0; }
+  .servicos-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 22px; }
+  .servico-card { background: #fff; border: 1px solid var(--border); border-radius: 14px; padding: 30px 26px; transition: all .25s; }
+  .servico-card:hover { border-color: var(--sage-light); transform: translateY(-3px); box-shadow: 0 10px 26px rgba(125, 140, 111, 0.12); }
+  .servico-icon { width: 52px; height: 52px; background: var(--bg-alt); border-radius: 12px; display: flex; align-items: center; justify-content: center; margin-bottom: 18px; color: var(--sage-dark); }
+  .servico-icon i { width: 26px; height: 26px; }
+  .servico-card h3 { font-size: 1.3rem; margin-bottom: 10px; color: var(--text); }
+  .servico-card p { font-size: 14px; line-height: 1.65; }
+  .sub-list { list-style: none; margin-top: 14px; padding-top: 14px; border-top: 1px solid var(--border); }
+  .sub-list li { padding: 6px 0; font-size: 13px; color: var(--text-soft); display: flex; gap: 10px; }
+  .sub-list li::before { content: '→'; color: var(--gold); font-weight: 600; }
+
+  /* EQUIPE */
+  .equipe { background: var(--bg-alt); }
+  .equipe-header { text-align: center; margin-bottom: 60px; }
+  .equipe-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 30px; }
+  .equipe-card { background: #fff; border-radius: 16px; padding: 36px 32px; border: 1px solid var(--border); display: flex; gap: 24px; align-items: flex-start; transition: all .25s; }
+  .equipe-card:hover { transform: translateY(-3px); box-shadow: 0 12px 30px rgba(0,0,0,0.06); }
+  .equipe-foto { width: 130px; height: 160px; border-radius: 12px; flex-shrink: 0; }
+  .equipe-info h3 { font-size: 1.35rem; margin-bottom: 4px; }
+  .equipe-cargo { font-size: 13px; color: var(--gold-dark); font-weight: 600; margin-bottom: 4px; }
+  .equipe-reg { font-size: 11px; color: var(--text-light); margin-bottom: 14px; font-style: italic; letter-spacing: 0.3px; }
+  .equipe-info p { font-size: 13px; line-height: 1.65; }
+  .em-breve { background: var(--bg-alt); display: flex; align-items: center; justify-content: center; }
+
+  /* DIFERENCIAIS */
+  .diferenciais { background: var(--bg); }
+  .dif-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+  .dif-card { background: #fff; border: 1px solid var(--border); border-radius: 14px; padding: 30px 26px; text-align: center; transition: all .25s; }
+  .dif-card:hover { border-color: var(--sage-light); transform: translateY(-3px); box-shadow: 0 10px 24px rgba(0,0,0,0.05); }
+  .dif-icon { width: 60px; height: 60px; background: var(--bg-alt); border-radius: 50%; display: inline-flex; align-items: center; justify-content: center; margin-bottom: 16px; color: var(--sage-dark); }
+  .dif-icon i { width: 28px; height: 28px; }
+  .dif-card h4 { font-family: 'Playfair Display', serif; font-size: 1.25rem; font-weight: 500; margin-bottom: 8px; color: var(--text); }
+  .dif-card p { font-size: 13px; line-height: 1.6; }
+
+  /* FAQ */
+  .faq { background: var(--bg-alt); }
+  .faq-header { text-align: center; margin-bottom: 50px; }
+  .faq-list { max-width: 800px; margin: 0 auto; }
+  .faq-item { background: #fff; border: 1px solid var(--border); border-radius: 12px; margin-bottom: 14px; overflow: hidden; transition: all .2s; }
+  .faq-item.open { border-color: var(--gold); }
+  .faq-question { padding: 22px 26px; font-size: 16px; font-weight: 600; color: var(--text); cursor: pointer; display: flex; justify-content: space-between; align-items: center; gap: 16px; user-select: none; transition: all .2s; }
+  .faq-question:hover { color: var(--sage-dark); }
+  .faq-toggle { font-size: 22px; color: var(--gold-dark); flex-shrink: 0; transition: transform .25s; line-height: 1; }
+  .faq-item.open .faq-toggle { transform: rotate(45deg); }
+  .faq-answer { padding: 0 26px; max-height: 0; overflow: hidden; transition: all .35s; }
+  .faq-item.open .faq-answer { padding: 0 26px 22px; max-height: 500px; }
+  .faq-answer p { font-size: 14px; line-height: 1.7; }
+  .faq-cta { text-align: center; margin-top: 50px; }
+  .faq-cta p { font-size: 16px; margin-bottom: 18px; color: var(--text); }
+
+  /* CONTATO */
+  .contato { background: var(--bg); }
+  .contato-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: start; }
+  .contato-info > h2 { margin-bottom: 14px; }
+  .contato-info > p { margin-bottom: 30px; font-size: 16px; }
+  .contato-item { display: flex; gap: 14px; padding: 14px 0; border-bottom: 1px solid var(--border); align-items: flex-start; }
+  .contato-item:last-of-type { border-bottom: none; }
+  .contato-icon { width: 38px; height: 38px; background: var(--bg-alt); border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0; color: var(--sage-dark); }
+  .contato-icon i { width: 18px; height: 18px; }
+  .contato-label { font-size: 11px; text-transform: uppercase; letter-spacing: 1.2px; color: var(--text-light); margin-bottom: 2px; }
+  .contato-value { font-size: 14px; color: var(--text); font-weight: 600; }
+  .contato-value a { color: var(--text); }
+  .contato-value a:hover { color: var(--gold-dark); }
+  .map-placeholder { margin-top: 24px; aspect-ratio: 16/8; }
+
+  .form-card { background: #fff; border: 1px solid var(--border); border-radius: 16px; padding: 38px 34px; box-shadow: 0 4px 18px rgba(0,0,0,0.04); }
+  .form-card h3 { margin-bottom: 6px; }
+  .form-card > p { font-size: 14px; margin-bottom: 24px; }
+  .form-row { margin-bottom: 16px; }
+  .form-row label { display: block; font-size: 12px; font-weight: 600; color: var(--text); margin-bottom: 6px; letter-spacing: 0.3px; }
+  .form-row input, .form-row textarea, .form-row select {
+    width: 100%; padding: 12px 14px; border: 1px solid var(--border); border-radius: 10px;
+    background: var(--bg); color: var(--text); font-size: 14px; font-family: inherit; transition: all .2s;
+  }
+  .form-row input:focus, .form-row textarea:focus, .form-row select:focus {
+    outline: none; border-color: var(--gold); background: #fff; box-shadow: 0 0 0 3px rgba(196, 164, 90, 0.1);
+  }
+  .form-row textarea { min-height: 120px; resize: vertical; }
+  .form-submit { width: 100%; background: var(--gold); color: #fff; border: none; padding: 14px; border-radius: 30px; font-size: 14px; font-weight: 600; cursor: pointer; transition: all .25s; font-family: inherit; letter-spacing: 0.5px; margin-top: 6px; }
+  .form-submit:hover { background: var(--gold-dark); transform: translateY(-1px); }
+
+  /* FOOTER */
+  .footer { background: var(--bg-dark); color: rgba(255,255,255,0.85); padding: 70px 0 30px; }
+  .footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 50px; margin-bottom: 50px; }
+  .footer-brand img { max-width: 220px; margin-bottom: 16px; }
+  .footer-brand p { color: rgba(255,255,255,0.7); font-size: 14px; max-width: 320px; font-style: italic; }
+  .footer-col h4 { font-family: 'Lato', sans-serif; font-size: 12px; text-transform: uppercase; letter-spacing: 1.5px; color: var(--gold); margin-bottom: 18px; font-weight: 700; }
+  .footer-col ul { list-style: none; }
+  .footer-col li { margin-bottom: 11px; }
+  .footer-col a, .footer-col p { color: rgba(255,255,255,0.75); font-size: 13px; }
+  .footer-col a:hover { color: var(--gold); }
+  .footer-social { display: flex; gap: 12px; margin-top: 12px; }
+  .footer-social a { width: 36px; height: 36px; background: rgba(255,255,255,0.08); border-radius: 50%; display: flex; align-items: center; justify-content: center; transition: all .25s; }
+  .footer-social a:hover { background: var(--gold); color: #fff; }
+  .footer-social i { width: 16px; height: 16px; }
+  .footer-bottom { border-top: 1px solid rgba(255,255,255,0.12); padding-top: 24px; text-align: center; font-size: 12px; color: rgba(255,255,255,0.55); }
+  .footer-legal { margin-bottom: 8px; font-size: 11px; }
+
+  /* WHATSAPP FLUTUANTE */
+  .wa-float { position: fixed; bottom: 24px; right: 24px; width: 62px; height: 62px; background: #25D366; border-radius: 50%; display: flex; align-items: center; justify-content: center; box-shadow: 0 8px 28px rgba(37, 211, 102, 0.45); z-index: 999; transition: all .25s; cursor: pointer; }
+  .wa-float:hover { transform: scale(1.1); }
+  .wa-float svg { width: 32px; height: 32px; fill: #fff; }
+  .wa-tooltip { position: absolute; right: 75px; background: var(--text); color: #fff; padding: 8px 14px; border-radius: 6px; font-size: 12px; white-space: nowrap; opacity: 0; pointer-events: none; transition: opacity .2s; }
+  .wa-float:hover .wa-tooltip { opacity: 1; }
+
+  /* SCROLL ANIMATIONS */
+  .fade-in { opacity: 0; transform: translateY(20px); transition: opacity .8s, transform .8s; }
+  .fade-in.visible { opacity: 1; transform: translateY(0); }
+
+  /* MOBILE */
+  @media (max-width: 960px) {
+    .nav { display: none; position: absolute; top: 100%; left: 0; right: 0; background: #fff; flex-direction: column; padding: 24px; gap: 4px; border-bottom: 1px solid var(--border); box-shadow: 0 8px 24px rgba(0,0,0,0.06); align-items: stretch; }
+    .nav.open { display: flex; }
+    .nav-item > a { padding: 12px 0; border-bottom: 1px solid var(--border); }
+    .nav-dropdown { position: static; opacity: 1; visibility: visible; transform: none; box-shadow: none; border: none; padding: 6px 0 6px 16px; min-width: 0; max-height: 0; overflow: hidden; transition: max-height .3s; }
+    .nav-item.open .nav-dropdown { max-height: 500px; }
+    .menu-toggle { display: block; }
+    .header-cta { display: none; }
+    .hero-grid { grid-template-columns: 1fr; gap: 40px; text-align: center; }
+    .hero-text p { margin-left: auto; margin-right: auto; }
+    .hero-doctor { max-width: 280px; margin: 0 auto; }
+    .sobre-grid { grid-template-columns: 1fr; gap: 40px; }
+    .protocolo-grid { grid-template-columns: repeat(2, 1fr); }
+    .equipe-grid { grid-template-columns: 1fr; }
+    .equipe-card { flex-direction: column; align-items: center; text-align: center; }
+    .dif-grid { grid-template-columns: repeat(2, 1fr); }
+    .contato-grid { grid-template-columns: 1fr; gap: 40px; }
+    .footer-grid { grid-template-columns: 1fr 1fr; gap: 30px; }
+    section { padding: 70px 0; }
+  }
+  @media (max-width: 600px) {
+    .protocolo-grid { grid-template-columns: 1fr; }
+    .dif-grid { grid-template-columns: 1fr; }
+    .footer-grid { grid-template-columns: 1fr; }
+    .container { padding: 0 18px; }
+    .hero-content { padding: 70px 0; }
+    .hero { min-height: 80vh; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ============ HEADER ============ -->
+<header class="header">
+  <div class="container header-inner">
+    <a href="#inicio" class="header-logo"><img src="logo.webp" alt="Seibert Saddy Saúde Integrativa"></a>
+    <nav class="nav" id="nav">
+      <div class="nav-item"><a href="#inicio" onclick="closeMenu()">Início</a></div>
+      <div class="nav-item"><a href="#sobre" onclick="closeMenu()">Sobre</a></div>
+      <div class="nav-item" onclick="toggleSubmenu(this)">
+        <a href="#servicos">Serviços <i data-lucide="chevron-down" style="width:14px;height:14px"></i></a>
+        <div class="nav-dropdown">
+          <a href="#servicos" onclick="closeMenu()">Medicina Integrativa</a>
+          <a href="#servicos" onclick="closeMenu()">Medicina Cannabinóide</a>
+          <a href="#servicos" onclick="closeMenu()">Clínica Geral</a>
+          <a href="#servicos" onclick="closeMenu()">Soroterapia e Injetáveis</a>
+          <a href="#servicos" onclick="closeMenu()">Fotobiomodulação</a>
+          <a href="#servicos" onclick="closeMenu()">Modulação Intestinal</a>
+          <a href="#servicos" onclick="closeMenu()">Perfil Hormonal</a>
+          <a href="#servicos" onclick="closeMenu()">Controle do Estresse</a>
+          <a href="#servicos" onclick="closeMenu()">Neuroinflamação</a>
+          <a href="#servicos" onclick="closeMenu()">Qualidade do Sono</a>
+          <a href="#servicos" onclick="closeMenu()">Equilíbrio Cérebro-Intestino</a>
+          <a href="#servicos" onclick="closeMenu()">Emagrecimento</a>
+          <a href="#servicos" onclick="closeMenu()">Tratamento com GLP-1</a>
+          <a href="#servicos" onclick="closeMenu()">Tratamento da Obesidade</a>
+          <a href="#servicos" onclick="closeMenu()">Nutrição</a>
+          <a href="#servicos" onclick="closeMenu()">Psicologia</a>
+        </div>
+      </div>
+      <div class="nav-item"><a href="cuidamais.html">CuidaMais</a></div>
+      <div class="nav-item"><a href="#equipe" onclick="closeMenu()">Nossa Equipe</a></div>
+      <div class="nav-item"><a href="#contato" onclick="closeMenu()">Contato</a></div>
+    </nav>
+    <a href="#contato" class="header-cta">Agende sua Consulta</a>
+    <button class="menu-toggle" onclick="toggleMenu()" aria-label="Abrir menu"><i data-lucide="menu" style="width:26px;height:26px"></i></button>
+  </div>
+</header>
+
+<!-- ============ HERO ============ -->
+<section class="hero" id="inicio">
+  <div class="hero-bg"></div>
+  <div class="hero-overlay"></div>
+  <div class="hero-content">
+    <div class="container">
+      <div class="hero-grid">
+        <div class="hero-text fade-in">
+          <h1>Sua melhor versão não está distante:<span class="sub">descubra como cuidar da saúde de forma completa, integrativa e duradoura.</span></h1>
+          <p>Medicina Integrativa, Cannabinóide e Clínica Geral no Rio de Janeiro, com foco em qualidade de vida real para cada fase da sua vida.</p>
+          <a href="#contato" class="hero-cta">Agende sua Consulta <i data-lucide="arrow-right"></i></a>
+        </div>
+        <div style="display:flex;flex-direction:column;align-items:center">
+          <div class="hero-doctor"><img src="img-03-marta.webp" alt="Dra. Marta Saddy" style="width:100%;height:100%;object-fit:cover;border-radius:12px"></div>
+          <div style="text-align:center;margin-top:14px">
+            <div style="font-family:'Playfair Display',serif;color:var(--gold);font-size:1.3rem;font-weight:500">Dra. Marta Saddy</div>
+            <div style="color:rgba(255,255,255,0.7);font-size:12px;letter-spacing:1px;margin-top:3px">CRM 52.57485-7</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ SOBRE ============ -->
+<section class="sobre" id="sobre">
+  <div class="container">
+    <div class="sobre-grid fade-in">
+      <div class="sobre-image" style="overflow:hidden"><img src="img-04-sobre.webp" loading="lazy" alt="Interior da clínica Seibert Saddy" style="width:100%;height:100%;object-fit:cover;border-radius:16px"></div>
+      <div class="sobre-text">
+        <span class="sec-tag">Sobre</span>
+        <h2 class="sec-title">Cada paciente é único, e merece ser tratado assim.</h2>
+        <p>A <b>Seibert Saddy Saúde Integrativa</b> nasceu da convicção de que saúde vai muito além da ausência de doenças, ela é a expressão plena do potencial de cada corpo e mente. Sob a liderança da Dra. Marta Saddy, oferecemos Clínica Geral, Medicina Integrativa e Medicina Cannabinóide com um olhar amplo, humano e profundamente personalizado.</p>
+        <p>Aqui, não existe consulta de 10 minutos. A Dra. Marta dedica tempo real para ouvir cada paciente, compreender sua história, seus hábitos e seus objetivos, e só então constrói um protocolo feito sob medida. É essa atenção genuína que transforma resultados e cria vínculos de confiança duradouros.</p>
+        <p>Nossa equipe multidisciplinar, composta por médica, enfermeira responsável técnica, nutricionista e acupunturista, trabalha de forma integrada para oferecer um cuidado completo e contínuo. Atendemos presencialmente no Rio de Janeiro e também por teleconsulta, para que a distância nunca seja um obstáculo ao seu bem-estar. Jovens, adultos e idosos que buscam reconectar-se com a própria saúde encontram aqui o acolhimento e a excelência que merecem.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ QUOTE ============ -->
+<section class="quote">
+  <div class="container">
+    <div class="quote-content fade-in">
+      <div class="quote-mark">"</div>
+      <p>Saúde de verdade se constrói todos os dias: conheça protocolos personalizados para viver mais, melhor e com mais disposição.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ VOCÊ PRECISA DE UM PROTOCOLO ============ -->
+<section class="protocolo">
+  <div class="container">
+    <div class="protocolo-header fade-in">
+      <span class="sec-tag">Quando buscar ajuda</span>
+      <h2 class="sec-title">Você precisa de um protocolo se...</h2>
+      <p class="sec-sub">Reconhece algum desses sinais? Pode ser hora de cuidar de você de verdade.</p>
+    </div>
+
+    <div class="protocolo-grid">
+      <div class="protocolo-card fade-in">
+        <div class="protocolo-img"><img src="img-05.webp" alt="Cansaço extremo" loading="lazy" style="width:100%;height:100%;object-fit:cover"></div>
+        <div class="protocolo-text">sente um cansaço constante que não passa mesmo depois de descansar.</div>
+      </div>
+      <div class="protocolo-card fade-in">
+        <div class="protocolo-img"><img src="img-06.webp" alt="Ansiedade e desânimo" loading="lazy" style="width:100%;height:100%;object-fit:cover"></div>
+        <div class="protocolo-text">vive com ansiedade, irritabilidade ou uma sensação persistente de desânimo.</div>
+      </div>
+      <div class="protocolo-card fade-in">
+        <div class="protocolo-img"><img src="img-07.webp" alt="Dor crônica" loading="lazy" style="width:100%;height:100%;object-fit:cover"></div>
+        <div class="protocolo-text">está lidando com dores recorrentes, alergias ou inflamações que prejudicam sua qualidade de vida.</div>
+      </div>
+      <div class="protocolo-card fade-in">
+        <div class="protocolo-img"><img src="img-08.webp" alt="Queda de cabelo" loading="lazy" style="width:100%;height:100%;object-fit:cover"></div>
+        <div class="protocolo-text">percebe que seu cabelo está caindo mais do que o normal e quer uma solução eficaz.</div>
+      </div>
+      <div class="protocolo-card fade-in">
+        <div class="protocolo-img"><img src="img-09.webp" alt="Dificuldade em emagrecer" loading="lazy" style="width:100%;height:100%;object-fit:cover"></div>
+        <div class="protocolo-text">tenta emagrecer há tempos, mas não consegue resultados duradouros.</div>
+      </div>
+      <div class="protocolo-card fade-in">
+        <div class="protocolo-img"><img src="img-10.webp" alt="Vitalidade na maturidade" loading="lazy" style="width:100%;height:100%;object-fit:cover"></div>
+        <div class="protocolo-text">quer envelhecer com saúde, vitalidade e autonomia, e não quer esperar ficar doente para agir.</div>
+      </div>
+    </div>
+
+    <div class="protocolo-cta fade-in">
+      <p>Se você se identificou com algum desses cenários,<br>a Seibert Saddy tem o protocolo certo para você.</p>
+      <a href="#contato" class="btn-gold">Agende sua avaliação <i data-lucide="arrow-right"></i></a>
+    </div>
+  </div>
+</section>
+
+<!-- ============ SERVIÇOS ============ -->
+<section class="servicos" id="servicos">
+  <div class="container">
+    <div class="servicos-header fade-in">
+      <span class="sec-tag">Nossos Serviços</span>
+      <h2 class="sec-title">Cuidado completo, personalizado e baseado em evidências.</h2>
+      <p class="sec-sub">Para todas as fases da vida, com a abordagem certa para você.</p>
+    </div>
+
+    <!-- GRUPO A — CONSULTAS E AVALIAÇÕES -->
+    <div class="servico-grupo fade-in">
+      <h3 class="grupo-titulo">Consultas & Avaliações</h3>
+      <div class="servicos-grid">
+        <div class="servico-card">
+          <div class="servico-icon"><i data-lucide="leaf"></i></div>
+          <h3>Medicina Integrativa</h3>
+          <p>Combina o melhor da medicina convencional com abordagens complementares para tratar o paciente em sua totalidade, corpo, mente e estilo de vida. Protocolos individualizados que levam em conta sintomas, história, hábitos e objetivos de cada pessoa.</p>
+        </div>
+        <div class="servico-card">
+          <div class="servico-icon"><i data-lucide="flask-conical"></i></div>
+          <h3>Medicina Cannabinóide</h3>
+          <p>Especialidade baseada em evidências científicas, com indicações para dor crônica, ansiedade, distúrbios do sono e processos inflamatórios. Avaliações criteriosas e prescrições seguras dentro dos marcos regulatórios da Anvisa.</p>
+        </div>
+        <div class="servico-card">
+          <div class="servico-icon"><i data-lucide="stethoscope"></i></div>
+          <h3>Clínica Geral</h3>
+          <p>Atendimento médico completo para jovens, adultos e idosos, com foco em escuta ativa, diagnóstico preciso e acompanhamento contínuo. Check-ups, avaliações preventivas e investigação de sintomas com cuidado integral.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- GRUPO B — PROCEDIMENTOS -->
+    <div class="servico-grupo fade-in">
+      <h3 class="grupo-titulo">Procedimentos & Protocolos</h3>
+      <div class="servicos-grid">
+        <div class="servico-card">
+          <div class="servico-icon"><i data-lucide="droplets"></i></div>
+          <h3>Soroterapia e Injetáveis</h3>
+          <p>Suplementação de vitaminas, minerais, antioxidantes e aminoácidos por via intravenosa ou intramuscular, com resultados mais rápidos que protocolos orais. Complementares aos protocolos domiciliares.</p>
+          <ul class="sub-list">
+            <li>Queda de cabelo</li>
+            <li>Cansaço extremo</li>
+            <li>Ansiedade e desânimo</li>
+            <li>Dor crônica e inflamação</li>
+          </ul>
+        </div>
+        <div class="servico-card">
+          <div class="servico-icon"><i data-lucide="pill"></i></div>
+          <h3>Tratamento Medicamentoso para Emagrecimento</h3>
+          <p>Utilizamos medicamentos de última geração baseados em análogos do GLP-1 (como Tirzepatida e Semaglutida), que atuam na regulação do apetite, no controle glicêmico e na perda de peso sustentável. O tratamento é sempre prescrito e acompanhado pela Dra. Marta, com dosagem individualizada e monitoramento contínuo para garantir segurança e resultados eficazes.</p>
+        </div>
+        <div class="servico-card">
+          <div class="servico-icon"><i data-lucide="zap"></i></div>
+          <h3>Fotobiomodulação</h3>
+          <p>Terapia não invasiva que utiliza luz em comprimentos de onda específicos para estimular regeneração celular, reduzir inflamação e aliviar dor. Oferecemos <b>Laserterapia</b> (aplicação externa) e <b>ILLIB</b> (irradiação a laser intravenosa), com indicação personalizada.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- GRUPO C — SAÚDE MENTAL E NEUROLÓGICA -->
+    <div class="servico-grupo fade-in">
+      <h3 class="grupo-titulo">Saúde Mental & Neurológica</h3>
+      <div class="servicos-grid">
+        <div class="servico-card">
+          <div class="servico-icon"><i data-lucide="brain"></i></div>
+          <h3>Controle do Estresse</h3>
+          <p>O estresse crônico é um dos principais gatilhos das doenças modernas. A Dra. Marta avalia o impacto do estresse no organismo e propõe protocolos que combinam suporte nutricional, modulação hormonal e terapias complementares.</p>
+        </div>
+        <div class="servico-card">
+          <div class="servico-icon"><i data-lucide="shield"></i></div>
+          <h3>Neuroinflamação e Oxidação</h3>
+          <p>Na raiz de condições como névoa mental, fadiga crônica, dores difusas e envelhecimento precoce. Protocolos específicos com nutrição funcional, antioxidantes injetáveis e abordagens integrativas para proteger o sistema nervoso.</p>
+        </div>
+        <div class="servico-card">
+          <div class="servico-icon"><i data-lucide="moon"></i></div>
+          <h3>Qualidade do Sono</h3>
+          <p>Dormir mal não é só cansativo, é um risco real à saúde. Investigamos as causas funcionais da insônia e dos distúrbios do sono e elaboramos protocolos personalizados para restaurar ciclos saudáveis de forma natural.</p>
+        </div>
+        <div class="servico-card">
+          <div class="servico-icon"><i data-lucide="git-branch"></i></div>
+          <h3>Equilíbrio Cérebro-Intestino</h3>
+          <p>O eixo cérebro-intestino conecta o sistema nervoso central ao sistema digestivo. Abordagem que atua simultaneamente na microbiota, nutrição, modulação hormonal e sistema nervoso para restaurar essa conexão fundamental.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- GRUPO D — TERAPIAS COMPLEMENTARES -->
+    <div class="servico-grupo fade-in">
+      <h3 class="grupo-titulo">Terapias Complementares</h3>
+      <div class="servicos-grid">
+        <div class="servico-card">
+          <div class="servico-icon"><i data-lucide="apple"></i></div>
+          <h3>Nutrição</h3>
+          <p>Nossa nutricionista trabalha de forma integrada com a equipe médica. Planos alimentares personalizados e funcionais voltados para emagrecimento, ganho de massa, controle de doenças crônicas, melhora da disposição e do sono.</p>
+        </div>
+        <div class="servico-card">
+          <div class="servico-icon"><i data-lucide="heart"></i></div>
+          <h3>Psicologia</h3>
+          <p>Consultas online com a Psicóloga Victoria Seibert. Atendimento acolhedor e especializado para cuidar da sua saúde mental, com a praticidade de sessões à distância, integradas ao olhar multidisciplinar da equipe.</p>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ============ EQUIPE ============ -->
+<section class="equipe" id="equipe">
+  <div class="container">
+    <div class="equipe-header fade-in">
+      <span class="sec-tag">Nossa Equipe</span>
+      <h2 class="sec-title">Profissionais comprometidos com o seu cuidado integral.</h2>
+    </div>
+
+    <div class="equipe-grid">
+      <div class="equipe-card fade-in">
+        <div class="equipe-foto" style="overflow:hidden"><img src="img-11-marta.webp" alt="Dra. Marta Saddy" loading="lazy" style="width:100%;height:100%;object-fit:cover;border-radius:12px"></div>
+        <div class="equipe-info">
+          <h3>Dra. Marta Saddy</h3>
+          <div class="equipe-cargo">Médica · Saúde Integrativa e Cannabinóide</div>
+          <div class="equipe-reg">CRM 52.57485-7</div>
+          <p>Médica formada pela Faculdade de Medicina Souza Marques, com mais de 30 anos de experiência clínica. Especialista em Clínica Geral, Saúde Integrativa, Medicina Cannabinóide, Homeopatia e Ultrassonografia, com formação complementar em emagrecimento. Sua prática é guiada pela escuta ativa, visão sistêmica e respeito à individualidade de cada paciente.</p>
+        </div>
+      </div>
+
+      <div class="equipe-card fade-in">
+        <div class="equipe-foto" style="overflow:hidden"><img src="img-12-sabrina.webp" alt="Enf. Sabrina Seibert" loading="lazy" style="width:100%;height:100%;object-fit:cover;border-radius:12px"></div>
+        <div class="equipe-info">
+          <h3>Enf. Sabrina Seibert</h3>
+          <div class="equipe-cargo">Enfermeira · Responsável Técnica</div>
+          <div class="equipe-reg">COREN-RJ 155072-ENF</div>
+          <p>Enfermeira formada pela UERJ, Responsável Técnica da clínica. Especialista em Enfermagem Obstétrica, Mestre em Saúde da Mulher e Doutora em Epidemiologia pela Fiocruz. Auditora em Saúde, combinação que garante rigor técnico, segurança e cuidado humanizado em cada etapa do tratamento.</p>
+        </div>
+      </div>
+
+      <div class="equipe-card fade-in">
+        <div class="equipe-foto" style="overflow:hidden"><img src="img-13-regiane.png" alt="Regiane Faia" loading="lazy" style="width:100%;height:100%;object-fit:cover;border-radius:12px"></div>
+        <div class="equipe-info">
+          <h3>Regiane Faia</h3>
+          <div class="equipe-cargo">Nutricionista Clínica e Esportiva · Personal Trainer</div>
+          <div class="equipe-reg">CRN9-21374 · CREF 025963-G/MG</div>
+          <p>Nossa nutricionista integra a equipe com foco em planos alimentares funcionais e personalizados, atuando em parceria com a equipe médica para potencializar os resultados de cada tratamento.</p>
+        </div>
+      </div>
+
+      <div class="equipe-card fade-in">
+        <div class="equipe-foto img-placeholder" data-desc="IMG-14 — Psicóloga Victoria Seibert"></div>
+        <div class="equipe-info">
+          <h3>Victoria Seibert</h3>
+          <div class="equipe-cargo">Psicóloga · Atendimento Online</div>
+          <div class="equipe-reg">&nbsp;</div>
+          <p>A Psicóloga Victoria Seibert realiza atendimentos online, oferecendo um espaço seguro e acolhedor para cuidar da saúde mental. Seu trabalho é integrado à abordagem multidisciplinar da equipe, fortalecendo o cuidado integral do paciente.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ DIFERENCIAIS ============ -->
+<section class="diferenciais">
+  <div class="container">
+    <div class="equipe-header fade-in">
+      <span class="sec-tag">Por que escolher</span>
+      <h2 class="sec-title">Diferenciais Seibert Saddy</h2>
+    </div>
+    <div class="dif-grid">
+      <div class="dif-card fade-in">
+        <div class="dif-icon"><i data-lucide="users"></i></div>
+        <h4>Equipe Multidisciplinar</h4>
+        <p>Médica, enfermeira, nutricionista e acupunturista trabalhando juntos pelo seu cuidado.</p>
+      </div>
+      <div class="dif-card fade-in">
+        <div class="dif-icon"><i data-lucide="clipboard-list"></i></div>
+        <h4>Protocolos Personalizados</h4>
+        <p>Nenhum tratamento é genérico. Cada protocolo é criado para você.</p>
+      </div>
+      <div class="dif-card fade-in">
+        <div class="dif-icon"><i data-lucide="microscope"></i></div>
+        <h4>Baseado em Evidências</h4>
+        <p>Abordagem integrativa com rigor científico e segurança clínica.</p>
+      </div>
+      <div class="dif-card fade-in">
+        <div class="dif-icon"><i data-lucide="leaf"></i></div>
+        <h4>Especialidade Cannabinóide</h4>
+        <p>Uma das poucas clínicas no Rio especializadas em Medicina Cannabinóide.</p>
+      </div>
+      <div class="dif-card fade-in">
+        <div class="dif-icon"><i data-lucide="award"></i></div>
+        <h4>30+ Anos de Experiência</h4>
+        <p>Tradição médica aliada às mais modernas abordagens terapêuticas.</p>
+      </div>
+      <div class="dif-card fade-in">
+        <div class="dif-icon"><i data-lucide="heart-handshake"></i></div>
+        <h4>Atendimento Humanizado</h4>
+        <p>Escuta ativa, respeito e atenção em cada consulta.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FAQ ============ -->
+<section class="faq">
+  <div class="container">
+    <div class="faq-header fade-in">
+      <span class="sec-tag">Tire suas dúvidas</span>
+      <h2 class="sec-title">Perguntas Frequentes</h2>
+      <p class="sec-sub">As principais dúvidas dos nossos pacientes antes de agendar.</p>
+    </div>
+
+    <div class="faq-list">
+      <div class="faq-item">
+        <div class="faq-question" onclick="toggleFaq(this)">
+          <span>Aceita plano de saúde?</span>
+          <span class="faq-toggle">+</span>
+        </div>
+        <div class="faq-answer">
+          <p>Não. Planos de saúde não costumam cobrir os custos dos tratamentos integrativos. Porém, emitimos nota fiscal dos atendimentos, que podem ser usadas para solicitação de reembolso ou abatimento no Imposto de Renda.</p>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-question" onclick="toggleFaq(this)">
+          <span>Não moro no Rio de Janeiro. Consigo fazer a consulta?</span>
+          <span class="faq-toggle">+</span>
+        </div>
+        <div class="faq-answer">
+          <p>Sim. Realizamos consultas online, ajustadas ao seu fuso horário, se necessário.</p>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-question" onclick="toggleFaq(this)">
+          <span>Posso fazer o procedimento sem passar pela consulta?</span>
+          <span class="faq-toggle">+</span>
+        </div>
+        <div class="faq-answer">
+          <p>Não. Recomendamos sempre passar pela consulta para que a Dra. Marta conheça melhor o seu caso, identifique a raiz do problema e monte um protocolo de tratamento completo. Após a consulta, é possível realizar o procedimento no mesmo dia, caso seja indicado e haja disponibilidade de horário.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="faq-cta fade-in">
+      <p>Ainda tem dúvidas? Fale com a gente.</p>
+      <a id="faq-wa" href="#" target="_blank" class="btn-gold">Chamar no WhatsApp <i data-lucide="message-circle"></i></a>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CONTATO ============ -->
+<section class="contato" id="contato">
+  <div class="container">
+    <div class="contato-grid">
+      <div class="contato-info fade-in">
+        <span class="sec-tag">Agende sua consulta</span>
+        <h2>Estamos prontos para te receber.</h2>
+        <p>Dê o primeiro passo para uma vida com mais saúde, energia e equilíbrio. Nossa equipe responde rapidamente.</p>
+
+        <div class="contato-item">
+          <div class="contato-icon"><i data-lucide="map-pin"></i></div>
+          <div>
+            <div class="contato-label">Atendimento</div>
+            <div class="contato-value">Botafogo · Rio de Janeiro / RJ<br><span style="font-weight:400;font-size:13px;color:var(--text-soft)">Consultas presenciais e por teleconsulta</span></div>
+          </div>
+        </div>
+
+        <div class="contato-item">
+          <div class="contato-icon"><i data-lucide="message-circle"></i></div>
+          <div>
+            <div class="contato-label">WhatsApp</div>
+            <div class="contato-value"><a id="wa-link" href="#">(21) 98347-3950</a></div>
+          </div>
+        </div>
+
+        <div class="contato-item">
+          <div class="contato-icon"><i data-lucide="mail"></i></div>
+          <div>
+            <div class="contato-label">E-mail</div>
+            <div class="contato-value"><a href="mailto:sabrinalinsseibert@gmail.com">sabrinalinsseibert@gmail.com</a></div>
+          </div>
+        </div>
+
+        <div class="contato-item">
+          <div class="contato-icon"><i data-lucide="instagram"></i></div>
+          <div>
+            <div class="contato-label">Instagram</div>
+            <div class="contato-value"><a href="https://instagram.com/martasaddy" target="_blank">@martasaddy</a></div>
+          </div>
+        </div>
+
+        <div class="contato-item">
+          <div class="contato-icon"><i data-lucide="clock"></i></div>
+          <div>
+            <div class="contato-label">Horário de Atendimento</div>
+            <div class="contato-value">A confirmar</div>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="form-card fade-in">
+        <h3>Envie uma mensagem</h3>
+        <p>Conte para a gente como podemos te ajudar.</p>
+        <form id="contact-form" onsubmit="sendContactForm(event)">
+          <div class="form-row">
+            <label>Nome completo *</label>
+            <input type="text" id="cf-nome" required>
+          </div>
+          <div class="form-row">
+            <label>WhatsApp *</label>
+            <input type="tel" id="cf-tel" placeholder="(21) 99999-0000" required>
+          </div>
+          <div class="form-row">
+            <label>E-mail</label>
+            <input type="email" id="cf-email" placeholder="seuemail@exemplo.com">
+          </div>
+          <div class="form-row">
+            <label>Interesse</label>
+            <select id="cf-interesse">
+              <option>Medicina Integrativa</option>
+              <option>Medicina Cannabinóide</option>
+              <option>Clínica Geral</option>
+              <option>Soroterapia e Injetáveis</option>
+              <option>Programa de Emagrecimento</option>
+              <option>Tratamento da Obesidade</option>
+              <option>Modulação Intestinal</option>
+              <option>Nutrição</option>
+              <option>Psicologia</option>
+              <option>Outro</option>
+            </select>
+          </div>
+          <div class="form-row">
+            <label>Mensagem</label>
+            <textarea id="cf-msg" placeholder="Como podemos te ajudar?"></textarea>
+          </div>
+          <button type="submit" class="form-submit">Enviar mensagem</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FOOTER ============ -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <img src="logo-dark.webp" alt="Seibert Saddy">
+        <p>Saúde de verdade se constrói todos os dias.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Navegação</h4>
+        <ul>
+          <li><a href="#inicio">Início</a></li>
+          <li><a href="#sobre">Sobre</a></li>
+          <li><a href="#servicos">Serviços</a></li>
+          <li><a href="#equipe">Equipe</a></li>
+          <li><a href="#contato">Contato</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Contato</h4>
+        <ul>
+          <li><p>Botafogo · Rio de Janeiro / RJ<br>Presencial e teleconsulta</p></li>
+          <li><a id="wa-link-footer" href="#">(21) 98347-3950</a></li>
+          <li><a href="mailto:sabrinalinsseibert@gmail.com">sabrinalinsseibert@gmail.com</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Redes Sociais</h4>
+        <div class="footer-social">
+          <a href="https://instagram.com/martasaddy" target="_blank" aria-label="Instagram"><i data-lucide="instagram"></i></a>
+          <a id="wa-link-social" href="#" target="_blank" aria-label="WhatsApp"><i data-lucide="message-circle"></i></a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div class="footer-legal">
+        Dra. Marta Saddy — CRM 52.57485-7 · Enf. Sabrina Seibert (RT) — COREN-RJ 155072-ENF
+      </div>
+      <div class="footer-legal">CNPJ 34.146.164/0001-43</div>
+      © 2026 Seibert Saddy Saúde Integrativa. Todos os direitos reservados.
+      <span style="margin:0 8px;opacity:0.4">·</span>
+      <a href="https://seibertsaddyclinic-app.vercel.app" target="_blank" style="color:rgba(255,255,255,0.4);font-size:11px">Acesso da equipe</a>
+    </div>
+  </div>
+</footer>
+
+<!-- ============ WHATSAPP FLUTUANTE ============ -->
+<a id="wa-float" class="wa-float" href="#" target="_blank" aria-label="Falar no WhatsApp">
+  <span class="wa-tooltip">Fale com a gente</span>
+  <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413"/></svg>
+</a>
+
+<script>
+// ====== CONFIGURAÇÃO — altere o WhatsApp aqui ======
+const WHATSAPP_NUMERO = '5521983473950'; // formato: 55 + DDD + numero
+const WHATSAPP_MSG_PADRAO = 'Olá! Gostaria de agendar uma consulta na Seibert Saddy.';
+
+// Aplica os links de WhatsApp
+const waUrl = 'https://wa.me/' + WHATSAPP_NUMERO + '?text=' + encodeURIComponent(WHATSAPP_MSG_PADRAO);
+['wa-float', 'wa-link', 'wa-link-footer', 'wa-link-social', 'faq-wa'].forEach(id => {
+  const el = document.getElementById(id);
+  if (el) el.href = waUrl;
+});
+
+// Menu mobile
+function toggleMenu() {
+  document.getElementById('nav').classList.toggle('open');
+}
+function closeMenu() {
+  document.getElementById('nav').classList.remove('open');
+  document.querySelectorAll('.nav-item').forEach(item => item.classList.remove('open'));
+}
+function toggleSubmenu(el) {
+  if (window.innerWidth <= 960) {
+    event.preventDefault();
+    el.classList.toggle('open');
+  }
+}
+
+// FAQ accordion
+function toggleFaq(question) {
+  const item = question.closest('.faq-item');
+  item.classList.toggle('open');
+}
+
+// Scroll animations
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) entry.target.classList.add('visible');
+  });
+}, { threshold: 0.1 });
+document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+
+// Form contato → envia para WhatsApp
+function sendContactForm(e) {
+  e.preventDefault();
+  const nome = document.getElementById('cf-nome').value.trim();
+  const tel = document.getElementById('cf-tel').value.trim();
+  const email = document.getElementById('cf-email').value.trim();
+  const interesse = document.getElementById('cf-interesse').value;
+  const msg = document.getElementById('cf-msg').value.trim();
+
+  let texto = 'Olá! Meu nome é ' + nome + '.\n';
+  texto += 'WhatsApp: ' + tel + '\n';
+  if (email) texto += 'E-mail: ' + email + '\n';
+  texto += 'Interesse: ' + interesse + '\n';
+  if (msg) texto += '\nMensagem: ' + msg;
+
+  const url = 'https://wa.me/' + WHATSAPP_NUMERO + '?text=' + encodeURIComponent(texto);
+  window.open(url, '_blank');
+}
+
+// Inicializa ícones Lucide
+lucide.createIcons();
+</script>
+</body>
+</html>

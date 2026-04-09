@@ -1,0 +1,469 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CuidaMais Connect | Seibert Saddy Saúde Integrativa</title>
+<meta name="description" content="CuidaMais Connect: contrate profissionais de enfermagem qualificados para cuidados domiciliares. Medicações injetáveis, curativos, auxílio ao banho, acompanhamento pós-cirúrgico e mais.">
+<link rel="icon" href="logo.webp">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Lato:wght@300;400;600;700&display=swap" rel="stylesheet">
+<script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
+<style>
+  :root {
+    --sage: #7D8C6F;
+    --sage-dark: #5d6c52;
+    --sage-light: #a4b497;
+    --taupe: #B8A898;
+    --gold: #C4A45A;
+    --gold-dark: #9b8240;
+    --bg: #FAF8F5;
+    --bg-alt: #f0e9df;
+    --bg-dark: #3D3830;
+    --text: #2E2A25;
+    --text-soft: #6B6460;
+    --text-light: #9c948c;
+    --border: #e8ddd1;
+    --teal: #2a7a8c;
+    --teal-dark: #1e5f6e;
+    --teal-light: #e6f4f7;
+    --img-placeholder: #c8dce2;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body { font-family: 'Lato', sans-serif; background: var(--bg); color: var(--text); line-height: 1.65; font-size: 16px; -webkit-font-smoothing: antialiased; }
+  h1, h2, h3, h4 { font-family: 'Playfair Display', serif; font-weight: 500; line-height: 1.2; color: var(--text); }
+  h1 { font-size: clamp(2.2rem, 5vw, 3.4rem); font-weight: 400; }
+  h2 { font-size: clamp(1.8rem, 4vw, 2.6rem); font-weight: 400; }
+  h3 { font-size: 1.4rem; font-weight: 500; }
+  p { color: var(--text-soft); }
+  a { color: var(--teal); text-decoration: none; transition: color .2s; }
+  a:hover { color: var(--teal-dark); }
+  img { max-width: 100%; display: block; }
+  .container { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
+  section { padding: 90px 0; }
+  .sec-tag { display: inline-block; font-size: 11px; font-weight: 600; letter-spacing: 2.5px; text-transform: uppercase; color: var(--teal); margin-bottom: 14px; }
+
+  /* IMAGE PLACEHOLDER */
+  .img-placeholder {
+    background: var(--img-placeholder);
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--teal-dark);
+    font-size: 12px;
+    text-align: center;
+    padding: 20px;
+    font-style: italic;
+    min-height: 160px;
+  }
+  .img-placeholder::before { content: attr(data-desc); }
+
+  /* HEADER */
+  .header { background: rgba(78, 90, 101, 0.97); backdrop-filter: blur(10px); border-bottom: 1px solid rgba(255,255,255,0.08); padding: 14px 0; position: sticky; top: 0; z-index: 100; }
+  .header-inner { display: flex; align-items: center; justify-content: space-between; }
+  .header-logo img { height: 48px; }
+  .header-nav { display: flex; gap: 28px; align-items: center; }
+  .header-nav a { font-size: 14px; font-weight: 600; color: rgba(255,255,255,0.85); }
+  .header-nav a:hover { color: var(--teal-light); }
+  .header-cta { background: var(--teal); color: #fff; padding: 10px 22px; border-radius: 30px; font-size: 13px; font-weight: 600; transition: all .25s; }
+  .header-cta:hover { background: var(--teal-dark); color: #fff; transform: translateY(-1px); }
+  .menu-toggle { display: none; background: none; border: none; cursor: pointer; color: rgba(255,255,255,0.85); }
+
+  /* HERO — 2 colunas */
+  .hero { padding: 80px 0 90px; background: linear-gradient(180deg, var(--teal-light) 0%, var(--bg) 100%); }
+  .hero-inner { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center; }
+  .hero-text { text-align: left; }
+  .hero-badge { display: inline-flex; align-items: center; gap: 8px; background: #fff; border: 1px solid var(--teal); border-radius: 30px; padding: 8px 18px; font-size: 13px; color: var(--teal); font-weight: 600; margin-bottom: 28px; }
+  .hero-badge i { width: 16px; height: 16px; }
+  .hero h1 { margin-bottom: 20px; }
+  .hero h1 span { color: var(--teal); }
+  .hero-text > p { max-width: 520px; font-size: 18px; margin-bottom: 48px; }
+  .hero-ctas { display: flex; gap: 16px; flex-wrap: wrap; }
+  .hero-img { border-radius: 16px; overflow: hidden; box-shadow: 0 20px 50px rgba(42, 122, 140, 0.15); }
+  .hero-img img { width: 100%; height: 100%; object-fit: cover; border-radius: 16px; }
+  .btn-teal { display: inline-flex; align-items: center; gap: 10px; background: var(--teal); color: #fff; padding: 16px 36px; border-radius: 40px; font-size: 14px; font-weight: 600; transition: all .25s; box-shadow: 0 8px 24px rgba(42, 122, 140, 0.3); border: none; cursor: pointer; font-family: inherit; }
+  .btn-teal:hover { background: var(--teal-dark); color: #fff; transform: translateY(-2px); }
+  .btn-teal i { width: 18px; height: 18px; }
+  .btn-outline { display: inline-flex; align-items: center; gap: 10px; background: transparent; color: var(--teal); padding: 16px 36px; border-radius: 40px; font-size: 14px; font-weight: 600; border: 2px solid var(--teal); transition: all .25s; cursor: pointer; font-family: inherit; }
+  .btn-outline:hover { background: var(--teal-light); transform: translateY(-2px); color: var(--teal); }
+
+  /* PARA QUEM — cards com imagem */
+  .paraquem { background: var(--bg); }
+  .paraquem-header { text-align: center; margin-bottom: 60px; }
+  .paraquem-header h2 { margin-bottom: 14px; }
+  .paraquem-header p { max-width: 640px; margin: 0 auto; font-size: 17px; }
+  .paraquem-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; }
+  .paraquem-card { background: #fff; border: 1px solid var(--border); border-radius: 14px; overflow: hidden; text-align: center; transition: all .25s; }
+  .paraquem-card:hover { border-color: var(--teal); transform: translateY(-4px); box-shadow: 0 12px 28px rgba(42, 122, 140, 0.1); }
+  .paraquem-card-img { height: 160px; overflow: hidden; }
+  .paraquem-card-img img { width: 100%; height: 100%; object-fit: cover; }
+  .paraquem-card-body { padding: 24px 22px 28px; }
+  .paraquem-icon { width: 60px; height: 60px; background: var(--teal-light); border-radius: 50%; display: inline-flex; align-items: center; justify-content: center; margin: -46px auto 14px; color: var(--teal); position: relative; z-index: 2; border: 3px solid #fff; }
+  .paraquem-icon i { width: 28px; height: 28px; }
+  .paraquem-card h3 { font-family: 'Lato', sans-serif; font-size: 16px; font-weight: 700; margin-bottom: 10px; }
+  .paraquem-card p { font-size: 14px; line-height: 1.6; }
+
+  /* COMO FUNCIONA — com imagens circulares */
+  .como { background: var(--bg-alt); }
+  .como-header { text-align: center; margin-bottom: 60px; }
+  .como-header h2 { margin-bottom: 14px; }
+  .como-steps { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 32px; max-width: 900px; margin: 0 auto; }
+  .step { text-align: center; position: relative; }
+  .step-img { width: 180px; height: 180px; border-radius: 50%; overflow: hidden; margin: 0 auto 20px; border: 4px solid var(--teal-light); }
+  .step-img img { width: 100%; height: 100%; object-fit: cover; }
+  .step-num { width: 52px; height: 52px; background: var(--teal); color: #fff; border-radius: 50%; display: inline-flex; align-items: center; justify-content: center; font-size: 1.4rem; font-weight: 700; font-family: 'Playfair Display', serif; margin-bottom: 18px; }
+  .step h3 { font-family: 'Lato', sans-serif; font-size: 16px; font-weight: 700; margin-bottom: 8px; }
+  .step p { font-size: 14px; }
+
+  /* DIFERENCIAIS — com foto lateral */
+  .diferenciais { background: var(--bg); }
+  .dif-header { text-align: center; margin-bottom: 60px; }
+  .dif-layout { display: grid; grid-template-columns: 1fr; gap: 40px; align-items: start; }
+  .dif-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 24px; }
+  .dif-card { background: #fff; border: 1px solid var(--border); border-radius: 14px; padding: 28px 24px; display: flex; gap: 16px; align-items: flex-start; }
+  .dif-icon { width: 46px; height: 46px; background: var(--teal-light); border-radius: 10px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; color: var(--teal); }
+  .dif-icon i { width: 22px; height: 22px; }
+  .dif-card h4 { font-family: 'Lato', sans-serif; font-size: 15px; font-weight: 700; margin-bottom: 6px; color: var(--text); }
+  .dif-card p { font-size: 13px; line-height: 1.6; }
+  .dif-photo { border-radius: 16px; overflow: hidden; position: sticky; top: 100px; }
+  .dif-photo img { width: 100%; height: 100%; object-fit: cover; border-radius: 16px; }
+
+  /* CTA FINAL — com imagem de fundo */
+  .cta-final { background: var(--teal); color: #fff; padding: 80px 0; text-align: center; position: relative; overflow: hidden; }
+  .cta-final-bg { position: absolute; inset: 0; opacity: 0.12; }
+  .cta-final-bg img { width: 100%; height: 100%; object-fit: cover; }
+  .cta-final .container { position: relative; z-index: 2; }
+  .cta-final h2 { color: #fff; margin-bottom: 14px; }
+  .cta-final p { color: rgba(255,255,255,0.85); max-width: 600px; margin: 0 auto 32px; font-size: 17px; }
+  .btn-white { display: inline-flex; align-items: center; gap: 10px; background: #fff; color: var(--teal); padding: 16px 36px; border-radius: 40px; font-size: 14px; font-weight: 600; transition: all .25s; box-shadow: 0 8px 24px rgba(0,0,0,0.15); border: none; cursor: pointer; font-family: inherit; }
+  .btn-white:hover { background: var(--bg); transform: translateY(-2px); color: var(--teal-dark); }
+
+  /* PARCERIA */
+  .parceria-img { border-radius: 14px; overflow: hidden; max-width: 700px; margin: 0 auto 30px; }
+  .parceria-img img { width: 100%; height: auto; }
+
+  /* FOOTER */
+  .footer { background: #4E5A65; color: rgba(255,255,255,0.85); padding: 50px 0 24px; }
+  .footer-inner { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 20px; margin-bottom: 30px; }
+  .footer-brand { max-width: 180px; }
+  .footer-links { display: flex; gap: 24px; flex-wrap: wrap; }
+  .footer-links a { color: rgba(255,255,255,0.7); font-size: 13px; }
+  .footer-links a:hover { color: var(--gold); }
+  .footer-bottom { border-top: 1px solid rgba(255,255,255,0.12); padding-top: 20px; text-align: center; font-size: 11px; color: rgba(255,255,255,0.5); }
+
+  /* ANIMATIONS */
+  .fade-in { opacity: 0; transform: translateY(20px); transition: opacity .8s, transform .8s; }
+  .fade-in.visible { opacity: 1; transform: translateY(0); }
+
+  /* MOBILE */
+  @media (max-width: 768px) {
+    .header-nav { display: none; position: absolute; top: 100%; left: 0; right: 0; background: #4E5A65; flex-direction: column; padding: 20px; gap: 14px; border-bottom: 1px solid rgba(255,255,255,0.08); }
+    .header-nav.open { display: flex; }
+    .menu-toggle { display: block; }
+    .header-cta { display: none; }
+    section { padding: 60px 0; }
+    .hero { padding: 50px 0 60px; }
+    .hero-inner { grid-template-columns: 1fr; gap: 40px; }
+    .hero-text { text-align: center; }
+    .hero-text > p { margin-left: auto; margin-right: auto; }
+    .hero-ctas { justify-content: center; flex-direction: column; align-items: center; }
+    .paraquem-grid { grid-template-columns: 1fr; }
+    .dif-layout { grid-template-columns: 1fr; }
+    .dif-grid { grid-template-columns: 1fr; }
+    .dif-photo { position: static; max-width: 400px; margin: 0 auto; }
+  }
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header class="header">
+  <div class="container header-inner">
+    <a href="index.html" class="header-logo" style="display:flex;align-items:center;gap:12px">
+      <img src="logo-branco.png" alt="Seibert Saddy Saúde Integral">
+      <span style="font-size:11px;color:rgba(255,255,255,0.5);border-left:1px solid rgba(255,255,255,0.15);padding-left:12px;line-height:1.3">Parceria<br><b style="color:#a8dbe6;font-size:13px">CuidaMais Connect</b></span>
+    </a>
+    <nav class="header-nav" id="nav-cm">
+      <a href="index.html">Seibert Saddy</a>
+      <a href="#servicos">Serviços</a>
+      <a href="#como">Como Funciona</a>
+      <a href="#diferenciais">Diferenciais</a>
+      <a href="#" id="cta-cadastro-nav" class="header-cta">Contratar Agora</a>
+    </nav>
+    <button class="menu-toggle" onclick="document.getElementById('nav-cm').classList.toggle('open')" aria-label="Menu"><i data-lucide="menu" style="width:26px;height:26px"></i></button>
+  </div>
+</header>
+
+<!-- HERO — 2 colunas: texto + imagem -->
+<section class="hero">
+  <div class="container">
+    <div class="hero-inner">
+      <div class="hero-text">
+        <div class="hero-badge fade-in"><i data-lucide="heart-pulse"></i> Plataforma de Cuidados Domiciliares</div>
+        <h1 class="fade-in">Cuidado profissional de enfermagem <span>no conforto da sua casa.</span></h1>
+        <p class="fade-in">O CuidaMais Connect é uma plataforma que conecta você a profissionais de enfermagem qualificados e verificados para cuidados domiciliares, com segurança, praticidade e confiança.</p>
+        <div class="hero-ctas fade-in">
+          <a href="#" id="cta-cadastro-hero" class="btn-teal">Quero contratar <i data-lucide="arrow-right"></i></a>
+          <a href="#servicos" class="btn-outline">Conhecer os serviços <i data-lucide="chevron-down"></i></a>
+        </div>
+      </div>
+      <div class="hero-img fade-in">
+        <!-- IMG-HERO: Enfermeira sorrindo com paciente em casa, 600x500px -->
+        <img src="img-hero-cm.png" alt="Enfermeira sorrindo com paciente em ambiente domiciliar acolhedor">
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PARA QUEM / SERVICOS — cards com imagem no topo -->
+<section class="paraquem" id="servicos">
+  <div class="container">
+    <div class="paraquem-header fade-in">
+      <span class="sec-tag">Serviços Disponíveis</span>
+      <h2>Quando você precisa do CuidaMais?</h2>
+      <p>Situações do dia a dia que pedem o cuidado de um profissional de enfermagem qualificado.</p>
+    </div>
+
+    <div class="paraquem-grid">
+      <div class="paraquem-card fade-in">
+        <div class="paraquem-card-img">
+          <img src="img-s1-cm.png" alt="Aplicação de medicamento injetável">
+        </div>
+        <div class="paraquem-card-body">
+          <div class="paraquem-icon"><i data-lucide="syringe"></i></div>
+          <h3>Medicacao Injetavel em Casa</h3>
+          <p>Aplicacao segura de medicamentos injetaveis (intramuscular, subcutanea ou intravenosa) no conforto do seu lar, por profissional habilitado.</p>
+        </div>
+      </div>
+      <div class="paraquem-card fade-in">
+        <div class="paraquem-card-img">
+          <img src="img-s2-cm.png" alt="Profissional fazendo curativo">
+        </div>
+        <div class="paraquem-card-body">
+          <div class="paraquem-icon"><i data-lucide="bandage"></i></div>
+          <h3>Curativos Especializados</h3>
+          <p>Troca e cuidado de curativos simples ou complexos, feridas cirurgicas, ulceras e lesoes, com tecnica adequada e material esteril.</p>
+        </div>
+      </div>
+      <div class="paraquem-card fade-in">
+        <div class="paraquem-card-img">
+          <img src="img-s3-cm.png" alt="Auxílio ao banho de pessoa idosa">
+        </div>
+        <div class="paraquem-card-body">
+          <div class="paraquem-icon"><i data-lucide="bath"></i></div>
+          <h3>Auxilio ao Banho</h3>
+          <p>Banho assistido para pessoas com mobilidade reduzida, acamados ou em recuperacao, garantindo higiene, conforto e dignidade.</p>
+        </div>
+      </div>
+      <div class="paraquem-card fade-in">
+        <div class="paraquem-card-img">
+          <img src="img-s4-cm.png" alt="Acompanhamento pós-cirúrgico">
+        </div>
+        <div class="paraquem-card-body">
+          <div class="paraquem-icon"><i data-lucide="hospital"></i></div>
+          <h3>Acompanhamento Pos-Cirurgico</h3>
+          <p>Cuidado profissional durante a recuperacao em casa apos cirurgias, monitoramento de sinais vitais, drenos e medicacoes.</p>
+        </div>
+      </div>
+      <div class="paraquem-card fade-in">
+        <div class="paraquem-card-img">
+          <img src="img-s5-cm.png" alt="Enfermeira conversando com idosos">
+        </div>
+        <div class="paraquem-card-body">
+          <div class="paraquem-icon"><i data-lucide="user-check"></i></div>
+          <h3>Companhia e Supervisao</h3>
+          <p>Acompanhamento para idosos, pessoas em recuperacao ou com condicoes cronicas que precisam de supervisao continua e presenca atenta.</p>
+        </div>
+      </div>
+      <div class="paraquem-card fade-in">
+        <div class="paraquem-card-img">
+          <img src="img-s6-cm.png" alt="Aferição de pressão arterial">
+        </div>
+        <div class="paraquem-card-body">
+          <div class="paraquem-icon"><i data-lucide="activity"></i></div>
+          <h3>Monitoramento de Saude</h3>
+          <p>Afericao de pressao, glicemia, temperatura e outros sinais vitais, com registro e acompanhamento para voce e seu medico.</p>
+        </div>
+      </div>
+      <div class="paraquem-card fade-in">
+        <div class="paraquem-card-img">
+          <img src="img-s7-cm.png" alt="Consulta de enfermagem">
+        </div>
+        <div class="paraquem-card-body">
+          <div class="paraquem-icon"><i data-lucide="clipboard-list"></i></div>
+          <h3>Consultas Especializadas</h3>
+          <p>Consultas de enfermagem em diversas especialidades: pre-natal, acupuntura, estomoterapia, estetica e outras areas de atuacao do enfermeiro.</p>
+        </div>
+      </div>
+      <div class="paraquem-card fade-in">
+        <div class="paraquem-card-img">
+          <img src="img-s8-cm.png" alt="Enfermeira obstetra com gestante">
+        </div>
+        <div class="paraquem-card-body">
+          <div class="paraquem-icon"><i data-lucide="baby"></i></div>
+          <h3>Assistencia ao Trabalho de Parto</h3>
+          <p>Enfermeira obstetra para acompanhamento durante o trabalho de parto, oferecendo suporte tecnico, emocional e humanizado nesse momento unico.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- COMO FUNCIONA — com imagens circulares -->
+<section class="como" id="como">
+  <div class="container">
+    <div class="como-header fade-in">
+      <span class="sec-tag">Simples e Rapido</span>
+      <h2>Como funciona?</h2>
+    </div>
+
+    <div class="como-steps">
+      <div class="step fade-in">
+        <div class="step-img">
+          <img src="img-cf1-cm.png" alt="Pessoa se cadastrando no celular">
+        </div>
+        <div class="step-num">1</div>
+        <h3>Cadastre-se</h3>
+        <p>Crie sua conta gratuitamente na plataforma CuidaMais Connect.</p>
+      </div>
+      <div class="step fade-in">
+        <div class="step-img">
+          <img src="img-cf2-cm.png" alt="Tela com perfis de profissionais">
+        </div>
+        <div class="step-num">2</div>
+        <h3>Busque um profissional</h3>
+        <p>Encontre profissionais de enfermagem verificados na sua regiao, com avaliacoes de outros pacientes.</p>
+      </div>
+      <div class="step fade-in">
+        <div class="step-img">
+          <img src="img-cf3-cm.png" alt="Enfermeiro chegando na casa do paciente">
+        </div>
+        <div class="step-num">3</div>
+        <h3>Contrate e receba</h3>
+        <p>Entre em contato direto, combine os detalhes e receba o cuidado no conforto da sua casa.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- DIFERENCIAIS — com foto lateral -->
+<section class="diferenciais" id="diferenciais">
+  <div class="container">
+    <div class="dif-header fade-in">
+      <span class="sec-tag">Por que CuidaMais?</span>
+      <h2>Seguranca e confianca em cada detalhe</h2>
+    </div>
+
+    <div class="dif-layout">
+      <div class="dif-grid">
+        <div class="dif-card fade-in">
+          <div class="dif-icon"><i data-lucide="shield-check"></i></div>
+          <div>
+            <h4>Profissionais Verificados</h4>
+            <p>Todos os profissionais passam por verificacao de registro ativo no COREN, documentacao obrigatoria e certidao de antecedentes.</p>
+          </div>
+        </div>
+        <div class="dif-card fade-in">
+          <div class="dif-icon"><i data-lucide="user-check"></i></div>
+          <div>
+            <h4>Conexao Direta</h4>
+            <p>Voce entra em contato diretamente com o profissional, sem intermediarios e com total transparencia.</p>
+          </div>
+        </div>
+        <div class="dif-card fade-in">
+          <div class="dif-icon"><i data-lucide="clock"></i></div>
+          <div>
+            <h4>Flexibilidade Total</h4>
+            <p>Encontre profissionais para visitas pontuais, plantoes ou cuidados continuos, conforme sua necessidade.</p>
+          </div>
+        </div>
+        <div class="dif-card fade-in">
+          <div class="dif-icon"><i data-lucide="heart-handshake"></i></div>
+          <div>
+            <h4>Cuidado Humanizado</h4>
+            <p>Profissionais comprometidos com o bem-estar, conforto e dignidade de cada paciente.</p>
+          </div>
+        </div>
+        <div class="dif-card fade-in">
+          <div class="dif-icon"><i data-lucide="star"></i></div>
+          <div>
+            <h4>Avaliacoes Reais</h4>
+            <p>Consulte avaliacoes de outros pacientes para escolher o profissional ideal com confianca.</p>
+          </div>
+        </div>
+        <div class="dif-card fade-in">
+          <div class="dif-icon"><i data-lucide="stethoscope"></i></div>
+          <div>
+            <h4>Supervisao Tecnica</h4>
+            <p>Plataforma supervisionada por enfermeira especialista (Enf. Sabrina Seibert, COREN-RJ 155072-ENF), garantindo qualidade e seguranca.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PARCERIA -->
+<section style="background:#566270;padding:70px 0;text-align:center">
+  <div class="container fade-in">
+    <span class="sec-tag" style="color:#a8dbe6;opacity:0.9">Parceria</span>
+    <h2 style="margin-bottom:18px;color:#fff">Uma iniciativa Seibert Saddy Saude Integrativa</h2>
+    <p style="max-width:640px;margin:0 auto 30px;font-size:16px;color:rgba(255,255,255,0.7)">O CuidaMais Connect e um projeto da Seibert Saddy Saude Integrativa, que traz para os cuidados domiciliares a mesma excelencia, seguranca e humanizacao dos nossos atendimentos clinicos.</p>
+    <a href="index.html"><img src="logo-branco.png" alt="Seibert Saddy Saude Integrativa" style="max-width:280px;margin:0 auto 20px"></a>
+    <div style="display:flex;gap:24px;justify-content:center;flex-wrap:wrap;margin-top:10px">
+      <a href="index.html" class="btn-outline" style="padding:12px 28px;font-size:13px;color:#fff;border-color:rgba(255,255,255,0.3)">Conheca a clinica <i data-lucide="arrow-right"></i></a>
+    </div>
+  </div>
+</section>
+
+<!-- CTA FINAL — com imagem de fundo -->
+<section class="cta-final">
+  <div class="container fade-in">
+    <h2>Precisa de cuidado profissional em casa?</h2>
+    <p>Cadastre-se agora e encontre o profissional de enfermagem ideal para o que voce precisa.</p>
+    <a href="#" id="cta-cadastro-final" class="btn-white">Criar minha conta <i data-lucide="arrow-right"></i></a>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer-inner">
+      <a href="index.html"><img src="logo-branco.png" alt="Seibert Saddy" class="footer-brand"></a>
+      <div class="footer-links">
+        <a href="index.html">Seibert Saddy</a>
+        <a href="#servicos">Servicos</a>
+        <a href="#como">Como Funciona</a>
+        <a href="#diferenciais">Diferenciais</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      CuidaMais Connect, uma iniciativa Seibert Saddy Saude Integrativa · CNPJ 34.146.164/0001-43<br>
+      &copy; 2026 Todos os direitos reservados.
+    </div>
+  </div>
+</footer>
+
+<script>
+// ====== URL DE CADASTRO — altere quando o CuidaMais estiver no Vercel ======
+const CUIDAMAIS_CADASTRO_URL = '#'; // Ex: 'https://cuidamaisconnect.com.br/auth?mode=signup&type=client'
+
+['cta-cadastro-hero', 'cta-cadastro-final', 'cta-cadastro-nav'].forEach(id => {
+  const el = document.getElementById(id);
+  if (el) el.href = CUIDAMAIS_CADASTRO_URL;
+});
+
+// Scroll animations
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => { if (entry.isIntersecting) entry.target.classList.add('visible'); });
+}, { threshold: 0.1 });
+document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+
+// Lucide icons
+lucide.createIcons();
+</script>
+</body>
+</html>
